@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  <div class="title">Resultados</div>
+  <br>
+  <br>
+  <br>
+    <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="search-container">
+              <form action ="/search/" role="search-role" id="form" method="POST" style="color: #325895;
+                display: flex;
+                justify-content: space-around;
+                padding: 2px;
+                border: 1px solid currentColor;
+                border-radius: 5px;
+                margin: 0 20% 30px;">
+                  {% csrf_token %}
+                  <input type="search" placeholder="Qual vai ser o rolê?..." name="event_name">
+
+                  <button type="submit">Pesquisar</button>
+                </form>
+              </div>
+            </div>
+        </div>
+        <div class="well search-result">
+            <div class="row">
+                    {% if queryset %}
+                    {% for event in queryset %}
+                        <div class="hr-line-dashed" style="justify-content:center"></div>
+                          <p><a href="#" class="no-underline"> {{event.name}} </a></p>
+                        <div class="hr-line-dashed"></div>
+
+                    {% endfor %}
+                    {% else %}
+                      {% if search %}
+                      <p style="text-align:center;">Nenhum resultado encontrado para '{{search}}' :(</p>
+                      {% else %}
+                        <p style="text-align:center;">Nenhum resultado encontrado para tais filtros :\</p>
+                      {% endif %}
+                    {% endif %}
+                    
+         
+            </div>
+        </div>
+        
+
+{% endblock %}

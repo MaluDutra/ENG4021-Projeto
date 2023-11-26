@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center_form">
+<h1 class="login_text">Adicionar usuário</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <div>
+    <label class="user_text">Nome de usuário:</label>
+    <input type="text" name="username" class="login_boxes">
+  </div>
+  <div>
+    <label class="user_text">Email:</label>
+    <input type="email" name="email" class="login_boxes">
+  </div>
+  <div>
+    <label class="user_text">Senha:</label>
+    <input type="password" name="password" class="login_boxes">
+  </div>
+  <br>
+  <input type="submit" value="Registrar" class="login_enter">
+  <br>
+  <br>
+  <br>
+  <span style="color: red">{{ error_msg }}</span>
+  <br>
+</form>
+</div>
+{% endblock %}

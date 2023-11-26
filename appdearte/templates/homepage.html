@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="search-container">
+      <form action ="/search/" role="search-role" id="form" method="POST" style="color: #325895;
+        display: flex;
+        justify-content: space-around;
+        padding: 2px;
+        border: 1px solid currentColor;
+        border-radius: 5px;
+        margin: 0 20% 30px;">
+          {% csrf_token %}
+          <input type="search" placeholder="Qual vai ser o rolê?..." name="event_name">
+    
+          <button type="submit">Pesquisar</button>
+        </form>
+      </div>
+
+    <div class="filters" style="height: 60px">
+      <form action ="/search/" role="search-role" id="form" method="POST" style="color: #325895;
+        display: flex;
+        justify-content: space-around;
+        padding: 2px;
+        border: 1px solid currentColor;
+        border-radius: 5px;
+        margin: 0 20% 30px;">
+        {% csrf_token %}
+        <div class="form-group col-md-4">
+          <label for="inputPrice">Preço</label>
+          <select id="inputPrice" class="form-control" name="preços">
+            <option selected>-</option>
+            <option>Gratuito</option>
+            <option>R$10-R$20</option>
+            <option>R$20-R$40</option>
+            <option>R$100-</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputQuando">Quando</label>
+          <select id="inputQuando" class="form-control" name="horário">
+            <option selected>-</option>
+            <option>manhã</option>
+            <option>tarde</option>
+            <option>noite</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputRolé">Rolê</label>
+          <select id="inputRolé" class="form-control" nome="rolê">
+            <option selected>-</option>
+            <option>Cinema</option>
+            <option>Teatro</option>
+            <option>Sebo</option>
+            <option>Shows/Festas</option>
+            <option>Eventos Temáticos</option>
+            <option>Exposições</option>
+          </select>
+        </div>
+        <button type="submit">Pesquisar</button>
+      </form>
+      
+    </div>
+      
+  
+    
+
+{% endblock %}

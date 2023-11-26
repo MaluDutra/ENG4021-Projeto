@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center_form">
+<h1 class="login_text">Entre na sua conta:</h1>
+<br>
+<form method="post">
+  {% csrf_token %}
+  <div>
+    <label class="user_text">Nome de Usuário:</label>
+    <input type="text" name="username" class="login_boxes">
+  </div>
+  <div>
+    <label class="user_text">Senha:</label>
+    <input type="password" name="password" class="login_boxes">
+  </div>
+  <br>
+  <input type="submit" value="Login" class="login_enter">
+  <br>
+  <span style="color: red" >{{ error_msg }}</span>
+  <br>
+  <a href="/users"> Criar conta? </a>
+</form>
+</div>
+{% endblock %}

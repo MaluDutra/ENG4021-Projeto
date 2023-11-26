@@ -1,0 +1,308 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+  font-family: 'Inknut Antiqua';
+}
+
+header{
+  background-color: #f4f4f4;
+}
+
+container {
+  display: flex; 
+  align-items: center;
+}
+
+image {
+  width: 200px; 
+  height: auto; 
+}
+
+text_header{
+  margin-left: 20px;
+}
+
+search-container{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 1467px;
+  height: 599px;
+  left: 0px;
+  top: 0px;
+
+}
+
+input[type='search'] {
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 14px;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: inherit;
+}
+
+input[type='search']::placeholder {
+  color: #4c72ae;
+}
+
+button[type='submit'] {
+  text-indent: -999px;
+  overflow: hidden;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+    no-repeat center;
+  cursor: pointer;
+  opacity: 0.7;
+  float:right;
+}
+
+button[type='submit']:hover {
+  opacity: 1;
+}
+
+button[type='submit']:focus,
+input[type='search']:focus {
+  box-shadow: 0 0 3px 0 #1183d6;
+  border-color: #1183d6;
+  outline: none;
+}
+
+.ui_resultados{
+  box-sizing: border-box;
+}
+
+.site_header{
+  display: flex;
+  width: 2000px;
+  height: 100px;
+
+  background: #FFFFFF;
+}
+.banner_bottom{
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 2000%;
+  height: 42px;
+  left: -10px;
+  
+  background: #DAD783;
+}
+.banner_bottom_text{
+  display: flex;
+  justify-content: center;
+  
+  width: 200px;
+  height: 63px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 64px;
+  text-align: center;
+
+  color: #000000;
+
+}
+
+.logo_items
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.logo_ui{
+  display: flex;
+  box-sizing: border-box;
+  border-radius: 9999px;
+  
+  width: 85px;
+  height: 83px;
+  
+  background: #FAF9EF;
+  border: 1px solid #000000;
+}
+
+.logo_ui_text{
+  display: flex;
+  width: 200px;
+  height: 190px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 90px;
+
+  color: #000000;
+}
+
+.title{
+  display: flex;
+  text-align:center;
+  justify-content:center;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 90px;
+
+  color: #000000;
+}
+
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.body_text{
+  display: flex;
+  text-align:center;
+  justify-content:center;
+  font-size: 25px;
+  font-weight: 400;
+  margin-left:10%;
+  margin-right:10%;
+}
+
+.banner_text{
+  display: flex;
+  justify-content: flex-end;
+  height: 73px;
+
+  font-style: normal;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 90px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.no-underline{
+  text-decoration:none;
+  color: #000000;
+}
+
+.no-underline:hover{
+  font-weight: bold;
+}
+
+.filters{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+}
+
+.hr-line-dashed {
+    border-top: 1px dashed #E7EAEC;
+    color: #000000;
+    background-color: #ffffff;
+    height: 1px;
+    margin: 20px 0;
+}
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+/* Rectangle 7 */
+.login_boxes{
+  box-sizing: border-box;
+  width: 509px;
+  top: 422px;
+  border: 1px solid #000000;  
+}
+
+
+.login_button{
+  position: absolute;
+  width: 107px;
+  height: 42px;
+  left: 90px;
+  top: 672px;
+  
+  background: #D9D9D9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
+}
+
+/* Entre na sua conta =D */
+.login_enter{
+  font-weight: 400;
+  border-radius: 4px;
+  
+  color: #8A8856;
+}
+
+.login_enter:hover{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.alert{
+  position:relative;
+  padding: 20px;
+  color: #582d2d;
+  background-color: #e4aeaa;
+  border:1px solid #f1aeb5;
+  border-radius:4px;
+}
+
+/* Nome do usuário: */
+
+.user_text{
+  width: 256px;
+  height: 63px;
+  display: flex;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 64px;
+}
+
+/* Entrar */
+
+/* Cadastrar */
+
+
+.login_text{
+  width: 708px;
+  height: 127px;
+  font-size: 30px;
+  line-height: 129px;
+  color: #8A8856;
+}
+
+/* Criar conta? */
+
+create_text{
+  position: absolute;
+  width: 256px;
+  height: 63px;
+  
+  font-family: 'Inknut Antiqua';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 52px;
+  
+  color: #000000;
+}
+
+
+.center_form{
+  display:flex; 
+  justify-content:center;
+  align-items: center;
+}

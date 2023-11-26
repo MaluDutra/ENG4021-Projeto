@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ArtEaí?</title>
+  <link href="{% static 'style.css'%}" rel="stylesheet" type="text/css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Linefont:wght@300&family=Open+Sans&family=Playpen+Sans&family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="site_header">
+    <div class="logo_items">
+      <div class="logo_ui"></div>
+        <div class="logo_ui_text">
+          <a class="no-underline" href="/">ArtEaí</a>
+        </div>
+          <div class="banner_text">
+            <a class="no-underline" href="/more-about-us/">Quem somos?</a>
+            
+            {% if request.user.is_authenticated %}
+              <b>Boas-vindas, </b>{{request.user.username}}!
+              <a class="no-underline" href="/users/logout/"> Sair da conta? </a>
+            {% else %}
+              <a class="no-underline" href="/users/login/">Login/</a>
+              <a class="no-underline" href="/users">Cadastrar-se</a>
+            {%endif%}
+            
+          </div>
+    </div>    
+  </div>
+  <div class="banner_bottom"></div>
+
+  <br>
+  {% block content %}
+  {% endblock %}
+</body>
+
+</html>
