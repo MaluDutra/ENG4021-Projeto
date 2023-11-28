@@ -21,14 +21,14 @@
           <a class="no-underline" href="/">ArtEaí</a>
         </div>
           <div class="banner_text">
-            <a class="no-underline" href="/more-about-us/">Quem somos?</a>
+            <a class="no-underline" href="/more-about-us/">Quem somos? |</a>
             
             {% if request.user.is_authenticated %}
               <b>Boas-vindas, </b>{{request.user.username}}!
               <a class="no-underline" href="/users/logout/"> Sair da conta? </a>
             {% else %}
-              <a class="no-underline" href="/users/login/">Login/</a>
-              <a class="no-underline" href="/users">Cadastrar-se</a>
+              <a class="no-underline" href="/users/login/"> Login |</a>
+              <a class="no-underline" href="/users"> Cadastrar-se</a>
             {%endif%}
             
           </div>

@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  
-  <div class="title">Resultados</div>
   <br>
   <br>
   <br>
@@ -25,14 +23,24 @@
             </div>
         </div>
         <div class="well search-result">
+          {% if queryset %}
+          {% for event in queryset %}
             <div class="row">
-                    {% if queryset %}
-                    {% for event in queryset %}
-                        <div class="hr-line-dashed" style="justify-content:center"></div>
-                          <p><a href="#" class="no-underline"> {{event.name}} </a></p>
-                        <div class="hr-line-dashed"></div>
+                <div class="column"">
+                  <div class="card" style="width: 18rem;">
+                      <div class="card-body" style="padding: 2px 16px;">
+                            <h5 class="card-title">{{event.name}}</h5>
+                            <p><a href = "{% url 'avaliation_form' event.id %}">Avaliar</a> </p>
+                            <p class="card-text">{{event.price}}.</p>
+                            <p></p><a href="{{event.link}}" class="btn btn-primary">Site Evento</a></p>
+                      </div>
+                          </div>
+                </div>
+             
 
-                    {% endfor %}
+                    
+              </div>
+          {% endfor %}
                     {% else %}
                       {% if search %}
                       <p style="text-align:center;">Nenhum resultado encontrado para '{{search}}' :(</p>

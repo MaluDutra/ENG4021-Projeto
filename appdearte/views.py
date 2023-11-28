@@ -3,15 +3,17 @@ from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_protect
 from django.template.loader import get_template
 from .models import Events, Category, Price, Time
+from .forms import AvaliationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required #troço de avaliação
+from appdearte import scrape
 
 # Create your views here.
 @csrf_protect
 def homepage(request):
   events = Events.objects.all()
-  
+  scrape.scrape_events()
   return render(request, "homepage.html", context = {
                  "events" : events
                })
@@ -41,6 +43,22 @@ def searchpage(request):
 
 def know_more(request):
   return render(request,"moreabout.html")
+
+@login_required
+def avaliation_form(request, pk):
+  event = Events.objects.get(id=pk)
+  user = request.user
+  print(user)
+  form = AvaliationForm(instance=event)
+  if user != None:
+    if request.method == "POST":
+      form = AvaliationForm(request.POST, instance=event)
+      if form.is_valid():
+        form.save()
+        return redirect("home")
+  else:
+    return redirect("login")
+  return render(request, "avaliation.html", {"form": form})
   
 #parte do credenciamento
 def create_user(request):
