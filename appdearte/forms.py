@@ -7,3 +7,10 @@ class AvaliationForm(ModelForm):
         fields = ["recomendation"]
 
 form = AvaliationForm()
+
+class EventsForm(ModelForm):
+    class Meta:
+        model = Events
+        fields = ["name", "link", "price", "date", "time", "category", "location"]
+
+form_event = EventsForm()

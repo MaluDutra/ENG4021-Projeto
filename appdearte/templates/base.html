@@ -16,7 +16,9 @@
 <body>
   <div class="site_header">
     <div class="logo_items">
-      <div class="logo_ui"></div>
+      <div class="logo_ui">
+        <img src="{% static '/images/logo.png'%}" class="center_logo">
+      </div>
         <div class="logo_ui_text">
           <a class="no-underline" href="/">ArtEaí</a>
         </div>
@@ -27,7 +29,7 @@
               <b>Boas-vindas, </b>{{request.user.username}}!
               <a class="no-underline" href="/users/logout/"> Sair da conta? </a>
             {% else %}
-              <a class="no-underline" href="/users/login/"> Login |</a>
+              <a class="no-underline" href="/accounts/login/"> Login |</a>
               <a class="no-underline" href="/users"> Cadastrar-se</a>
             {%endif%}
             

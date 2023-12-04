@@ -168,6 +168,14 @@ input[type='search']:focus {
   width: 50%;
 }
 
+.center_logo{
+  display: block;
+  margin-left: 6%;
+  margin-right: 5%;
+  width: 82%;
+  height: 100%;
+}
+
 .body_text{
   display: flex;
   text-align:center;
@@ -330,4 +338,40 @@ create_text{
 
 .oi{
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+#addevent{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  height: 100px;
+  margin-left: -5%;
+  margin-right: -5%;
+  background-color:#8A8856;
+}
+
+.add-text{
+  display:flex;
+  justify-content:center;
+  color:white;
+  text-decoration:none;
+  font-size:120%;
+}
+
+.add-text:hover{
+  font-weight: bold;
+}
+
+#footer{
+  height: 100px; 
+  width:100%;
+  position: absolute;
+  left: 0;
+  bottom: 0; 
+}
+
+.event-avaliation{
+  font-size:130%;
 }

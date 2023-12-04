@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_protect
 from django.template.loader import get_template
 from .models import Events, Category, Price, Time
-from .forms import AvaliationForm
+from .forms import AvaliationForm, EventsForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required #troço de avaliação
@@ -19,7 +19,7 @@ def homepage(request):
                })
 
 #filtros
-
+#FAZER TROÇO DE CARREGAR EVENTOS SOMENTE VALIDADOS
 def searchpage(request):
   qs = Events.objects.all()
 
@@ -37,29 +37,42 @@ def searchpage(request):
       qs = qs.filter(time__name=time_contains_query)
     if category_contains_query and category_contains_query != "-":
       qs = qs.filter(categories__name=category_contains_query)
-    
+    qs = qs.filter(validated=True)
     return render(request, "searchpage.html",context = { "search":  
       name_contains_query, "queryset" : qs})
 
 def know_more(request):
   return render(request,"moreabout.html")
 
-@login_required
 def avaliation_form(request, pk):
   event = Events.objects.get(id=pk)
+  event_name=event.name
   user = request.user
   print(user)
   form = AvaliationForm(instance=event)
-  if user != None:
-    if request.method == "POST":
+  if request.method == "POST":
       form = AvaliationForm(request.POST, instance=event)
       if form.is_valid():
         form.save()
         return redirect("home")
+  if request.user.is_authenticated:
+    return render(request, "avaliation.html", {"form": form, "event_name": event_name})
   else:
-    return redirect("login")
-  return render(request, "avaliation.html", {"form": form})
-  
+    return login_user(request, "Você precisa estar logado para avaliar um evento")
+
+#adicionar evento
+def add_event(request):
+  form = EventsForm()
+  if request.method == "POST":
+    form = EventsForm(request.POST)
+    if form.is_valid():
+      form.save()
+      return redirect("home") 
+  if request.user.is_authenticated:
+    return render(request, "addevent.html", context={"form":form})
+  else:
+    return login_user(request, "Você precisa estar logado para adicionar um evento")
+
 #parte do credenciamento
 def create_user(request):
   if request.method == "POST":
@@ -79,7 +92,7 @@ def create_user(request):
     return redirect("home")
   return render(request,"register.html")
 
-def login_user(request):
+def login_user(request, error_msg):
   if request.method =="POST":
     user = authenticate(
       username = request.POST["username"],
@@ -93,6 +106,10 @@ def login_user(request):
       return render(request,"login.html",context={"error_msg":"Usuário não encontrado! =c"})
     if request.user.is_authenticated:
       return redirect("home")
+  if error_msg=="Você precisa estar logado para adicionar um evento":
+    return render(request,"login.html",context={"error_msg": "Você precisa estar logado para adicionar um evento"})
+  elif error_msg=="Você precisa estar logado para avaliar um evento":
+    return render(request,"login.html",context={"error_msg": "Você precisa estar logado para avaliar um evento"})
   return render(request,"login.html")
 
 def logout_user(request):

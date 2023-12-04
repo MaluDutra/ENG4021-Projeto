@@ -36,6 +36,7 @@ class Events(models.Model):
   category = models.ManyToManyField(Category)
   location = models.CharField(max_length=200)
   recomendation = models.CharField(max_length=1, choices = RECOMENDATION_CATEGORY, null=True)
+  validated = models.BooleanField(default=False)
 
 #   def average_rating(self) -> float:
 #     return Rating.objects.filter(post=self).aggregate(Avg("rating"))["rating__avg"] or 0

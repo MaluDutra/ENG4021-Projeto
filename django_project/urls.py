@@ -22,8 +22,9 @@ urlpatterns = [
   path('admin/', admin.site.urls),
   path('search/', views.searchpage, name = 'search'),
   path('users', views.create_user),
-  path('users/login/', views.login_user, name="login"),
+  path('accounts/login/', views.login_user, name="login"),
   path('users/logout/', views.logout_user, name="logout"),
   path('avaliation_form/<str:pk>/', views.avaliation_form, name="avaliation_form"), 
-  path('more-about-us/', views.know_more)
+  path('more-about-us/', views.know_more),
+  path('add-event/', views.add_event)
 ]
